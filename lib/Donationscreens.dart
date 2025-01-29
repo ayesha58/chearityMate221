@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class donateitemscreen extends StatelessWidget {
@@ -8,7 +8,7 @@ class donateitemscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('donate items '),
+        title: const Text('donate items '),
       ),
     );
   }
@@ -21,7 +21,7 @@ class donatemoneyscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('donate money '),
+        title: const Text('donate money '),
       ),
     );
   }
@@ -34,7 +34,7 @@ class donatestationaryscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('donate Stationary '),
+        title: const Text('donate Stationary '),
       ),
     );
   }
@@ -73,7 +73,7 @@ class otherdonation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('other screen'),
+        title: const Text('other screen'),
       ),
     );
   }
