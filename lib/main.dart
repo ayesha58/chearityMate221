@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sahara_homepage/postscreen.dart';
-import 'package:sahara_homepage/signinpage.dart';
+//import 'package:sahara_homepage/signinpage.dart';
 import 'package:sahara_homepage/splashscreen.dart';
 import 'Homescreen.dart';
 import 'profilescreen.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
@@ -37,10 +37,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  @override
   int current_index = 0;
-  final screen = [Homepage(), searchscreen(), postscreen(), profile()];
+  final screen = [const Homepage(), const searchscreen(), const postscreen(), const profile()];
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
@@ -50,11 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
             current_index = value;
             setState(() {});
           },
-          unselectedIconTheme: IconThemeData(color: Colors.grey),
-          selectedIconTheme: IconThemeData(color: Colors.black),
+          unselectedIconTheme: const IconThemeData(color: Colors.grey),
+          selectedIconTheme: const IconThemeData(color: Colors.black),
           unselectedFontSize: 8,
           selectedFontSize: 10,
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
             BottomNavigationBarItem(
