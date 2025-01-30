@@ -3,11 +3,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:sahara_homepage/Homescreen.dart';
+import 'package:sahara_homepage/auth_service.dart';
 import 'package:sahara_homepage/signinpage.dart';
 
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({super.key});
+  final _auth=Authservice();
+ final TextEditingController emailController =TextEditingController();
+  final TextEditingController usernameController=TextEditingController();
+  final TextEditingController passwordController=TextEditingController();
+  final TextEditingController confirmpasswordController=TextEditingController();
+  void dispose(){
+    emailController.dispose();
+    usernameController.dispose();
+    passwordController.dispose();
+    confirmpasswordController.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +51,8 @@ class SignUpPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 // Username Field
-                TextField(
+                TextField(obscureText: true,
+                  controller:usernameController,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.person),
                     hintText: 'Username',
@@ -53,7 +66,8 @@ class SignUpPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 // Email Field
-                TextField(
+                TextField(obscureText: true,
+                  controller: emailController,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.email),
                     hintText: 'Email',
@@ -69,6 +83,7 @@ class SignUpPage extends StatelessWidget {
                 // Password Field
                 TextField(
                   obscureText: true,
+                  controller: passwordController,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.lock),
                     hintText: 'Password',
@@ -83,6 +98,7 @@ class SignUpPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 // Confirm Password Field
                 TextField(
+                  controller: confirmpasswordController,
                   obscureText: true,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.lock),
@@ -100,9 +116,20 @@ class SignUpPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder:(context)=>const Homepage() ));
+                    onPressed: ()async{
+                      String email= emailController.text.toString();
+                      String pass=passwordController.text;
+                      final user=await _auth.createUserWithEmailAndPassword(email, pass);
+                      if(user!=null){
+                        print("user created succesfully");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context)=>  const Homepage(),
+                            )
+                        );
+
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white70,
@@ -131,9 +158,14 @@ class SignUpPage extends StatelessWidget {
                     const Text('Already have an account? '),
                     GestureDetector(
                       onTap: () {
+                        print("username:${usernameController.text}");
+                        print("email${emailController}");
+                        print("password${passwordController.text}");
+                        print("confirmpassword${confirmpasswordController.text}");
+
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const SignInPage()),
+                          MaterialPageRoute(builder: (context) =>  SignInPage()),
                         );
                         // Navigate to login screen
                       },
@@ -147,9 +179,11 @@ class SignUpPage extends StatelessWidget {
                     ),
                   ],
                 ),
-              ],
+              ]
+
             ),
           ),
+
         ),
       ),
     );

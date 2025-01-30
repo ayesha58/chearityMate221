@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "433976407633",
+    "project_id": "chearitymatee-66173",
+    "storage_bucket": "chearitymatee-66173.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433976407633:android:50b2a338c5cb383230aa70",
+        "android_client_info": {
+          "package_name": "com.example.sahara_homepage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa1SnhN5Ue3sUb1j_2MUacIHYCFor7KaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

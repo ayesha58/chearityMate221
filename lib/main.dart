@@ -1,4 +1,5 @@
 //import 'package:flutter/cupertino.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:sahara_homepage/postscreen.dart';
 //import 'package:sahara_homepage/signinpage.dart';
@@ -7,7 +8,16 @@ import 'Homescreen.dart';
 import 'profilescreen.dart';
 import 'searchscreen.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: const FirebaseOptions(
+      apiKey: "AIzaSyDITDes7n116fESgyax-qWwVqtPpi9VxBY",
+      authDomain: "chearitymatee-66173.firebaseapp.com",
+      projectId: "chearitymatee-66173",
+      storageBucket: "chearitymatee-66173.firebasestorage.app",
+      messagingSenderId: "433976407633",
+      appId: "1:433976407633:web:a352f3f0350facf930aa70"));
   runApp(const MyApp());
 }
 
